@@ -6,7 +6,7 @@
 /*   By: thstrent <thstrent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/27 13:21:33 by thstrent          #+#    #+#             */
-/*   Updated: 2015/10/27 10:25:05 by thstrent         ###   ########.fr       */
+/*   Updated: 2015/11/03 18:08:57 by thstrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int		ft_strlento(char *str, char c);
 int		ft_lenf(int start, int end);
 int		ft_isascii(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 #endif

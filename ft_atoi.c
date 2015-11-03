@@ -6,7 +6,7 @@
 /*   By: thstrent <thstrent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 23:06:55 by thstrent          #+#    #+#             */
-/*   Updated: 2015/10/24 21:37:44 by thstrent         ###   ########.fr       */
+/*   Updated: 2015/11/03 18:11:13 by thstrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		secur(const char c)
 {
 	while ((c < 49) && (c > 57))
 	{
-		write(1, "b", 1);
 		if (((c >= 0) && (c < 32)) || ((c > 32) && (c < 45)))
 			return (1);
 		if ((c > 58) && (c < 127))
@@ -40,7 +39,6 @@ int		ft_atoi(const char *str)
 	result = 0;
 	while (str[i])
 	{
-		write(1, "a", 1);
 		if (secur(str[i] == 1))
 				return (result);
 		if ((str[i] == 9) || (str[i] == ' '))
@@ -62,20 +60,4 @@ int		ft_atoi(const char *str)
 	else
 		return (result);
 	return (result);
-}
-
-int		main(void)
-{
-	char	*str;
-	int		i;
-	int		y;
-
-	str = "123";
-	i = 0;
-	y = ft_atoi(str);
-	while (i < y)
-	{
-		write(1, "z", 1);
-	}
-	return (0);
 }
