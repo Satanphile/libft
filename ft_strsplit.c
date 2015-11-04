@@ -6,58 +6,60 @@
 /*   By: thstrent <thstrent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/03 17:38:41 by thstrent          #+#    #+#             */
-/*   Updated: 2015/09/06 16:55:46 by thstrent         ###   ########.fr       */
+/*   Updated: 2015/11/04 18:10:00 by thstrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_strflen(const char *str, char c)
+static size_t	ft_strflen(const char *str, char c)
 {
-	int		i;
+	size_t		i;
 
 	i = 0;
-	while (str[i] != c)
-		i++;
+	while (*str && *str != c)
+	{	
+		i++;	
+		str++;
+	}
 	return (i);
 }
 
-static int		cfinder(const char *s, char c)
+static size_t		cfinder(const char *s, char c)
 {
-	int		i;
-	int		j;
+	size_t		i;
 
 	i = 0;
-	j = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-			j++;
-		i++;
+		if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
+			i++;
+		s++;
 	}
-	return (j);
+	return (i);
 }
 
 char	**ft_strsplit(char const *s, char c)
 {
-	int		i;
-	int		j;
 	char	**tab;
+	size_t i;
 
-	i = 0;
-	j = 0;
-	if ((tab = malloc(sizeof(char *) * cfinder(s, c))) == NULL)
+	if (!s)
 		return (NULL);
-	while (s[i])
+	if ((tab = malloc((cfinder(s, c) + 1) * sizeof(char *))) == NULL )
+		return (NULL);
+	i = 0;
+	while (i < cfinder(s, c) && *s)
 	{
-		if (s[i] != c)
-			i++;
-		else
-		{
-			tab[j] = ft_strdup(ft_strsub(s, (i - ft_strflen(s, c)), i));
-			i = i + ft_strflen(s, c);
-			j++;
-		}
+		while (*s == c)
+			s++;
+		if ((tab[i] = malloc((ft_strflen(s, c) + 1) * sizeof(char))) == NULL)
+			return (NULL);
+		ft_strncpy(tab[i], s, ft_strflen(s, c));
+		tab[i][ft_strflen(s, c)] = '\0';
+		s += ft_strflen(s, c);
+		i++;
 	}
+	tab[i] = NULL;
 	return (tab);
 }
