@@ -6,7 +6,7 @@
 /*   By: thstrent <thstrent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/16 16:10:57 by thstrent          #+#    #+#             */
-/*   Updated: 2015/09/06 16:51:33 by thstrent         ###   ########.fr       */
+/*   Updated: 2015/11/13 15:37:14 by thstrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mini_putnbr(int n)
 
 void	ft_putnbr(int n)
 {
-	while (n > 0)
+	if (n != 0)
 	{
 		n = n / 10;
 		ft_putnbr(n);

@@ -6,7 +6,7 @@
 #    By: thstrent <thstrent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/19 17:21:46 by thstrent          #+#    #+#              #
-#    Updated: 2015/11/03 18:09:43 by thstrent         ###   ########.fr        #
+#    Updated: 2015/11/13 14:58:10 by thstrent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,7 +137,7 @@ $(NAME):
 	ar rc $(NAME) $(OBJ)
 
 test: re
-	gcc Maintest-master/libft/main.c -I./includes/ -L. -lft
+	gcc main_itoa.c -I./includes/ -L. -lft
 
 clean:
 	rm -r $(OBJ)

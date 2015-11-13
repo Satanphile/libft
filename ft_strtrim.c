@@ -6,7 +6,7 @@
 /*   By: thstrent <thstrent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/22 19:18:52 by thstrent          #+#    #+#             */
-/*   Updated: 2015/09/06 16:44:23 by thstrent         ###   ########.fr       */
+/*   Updated: 2015/11/11 20:34:51 by thstrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 char	*ft_strtrim(const char *s)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	char	*result;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = ft_strlen(s);
-	if ((s[0] == ' ') || (s[0] == ',') || (s[0] == '\n') || (s[0] == '\t'))
+	result = ft_strnew(ft_strlen(s));
+	while (i < ft_strlen(s))
 	{
-		i++;
-		j--;
+		if (((s[i] == ' ') || (s[i] == ',') || (s[i] == '\n') || (s[i] == '\t'))\
+			&& ((s[i + 1] == ' ') || (s[i + 1] == ',') || (s[i + 1] == '\n') || (s[i + 1] == '\t')))
+			i++;
+		else
+		{
+			result[j] = s[i];
+			i++;
+			j++;
+		}
 	}
-	if ((s[j] == ' ') || (s[j] == ',') || (s[j] == '\n') || (s[j] == '\t'))
-		j--;
-	if ((result = malloc(sizeof(char) * ft_strlen(s) + 1)) == NULL)
-		return (NULL);
-	while (i <= j)
-	{
-		result[i] = s[i];
-		i++;
-	}
-	result[j + 1] = '\0';
 	return (result);
 }

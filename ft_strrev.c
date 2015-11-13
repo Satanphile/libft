@@ -6,7 +6,7 @@
 /*   By: thstrent <thstrent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/16 14:27:41 by thstrent          #+#    #+#             */
-/*   Updated: 2015/09/06 16:54:47 by thstrent         ###   ########.fr       */
+/*   Updated: 2015/11/13 15:10:08 by thstrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_strrev(char *str)
 	size_t		i;
 	char	*res;
 	
-	i = ft_strlen(str - 1);
+	i = 0;
 	res = ft_strdup(str);
-	while (i < ft_strlen(str - 1))
+	while (str[i])
 	{
-		res[i] = str[ft_strlen(str) - i];
+		res[(ft_strlen(str) - 1) - i] = str[i];
 		i++;
 	}
 	return (res);
